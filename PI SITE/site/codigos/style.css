@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.layout {
+    background-color: rgb(213, 226, 190);
+}
+
+.logo_menu {
+    width: 100px;
+    float: left;
+    margin-left: 3%;
+}
+
+#join {
+    border-color: rgb(25, 145, 25);
+    border-radius: 15px;
+}
+
+.folhas_layout {
+    width: 40%;
+    height: 30%;
+}
+
+.box_layout {
+    float: left;
+    margin: 10% 15% 10% 15%;
+    padding: 5% 2% 5% 2%;
+    text-align: center;
+}
+
+.subtitle_layout {
+    font-size: 180%;
+    background-color: none;
+}
+
+.msn_layout {
+    font-size: 100%;
+}
