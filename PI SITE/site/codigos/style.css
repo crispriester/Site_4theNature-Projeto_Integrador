@@ -4,7 +4,17 @@
 }
 
 .layout {
-    background-color: rgb(213, 226, 190);
+    background-color: rgb(245, 243, 245);
+}
+
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+.affix+.container-fluid {
+    padding-top: 70px;
 }
 
 .logo_menu {
