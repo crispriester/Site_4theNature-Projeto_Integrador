@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.layout {
+body {
     background-color: rgb(245, 243, 245);
 }
 
@@ -29,13 +29,13 @@
 }
 
 .folhas_layout {
-    width: 40%;
+    width: 45%;
     height: 30%;
 }
 
 .box_layout {
     float: left;
-    margin: 10% 15% 10% 15%;
+    margin: 15% 10% 0% 15%;
     padding: 5% 2% 5% 2%;
     text-align: center;
 }
@@ -47,4 +47,8 @@
 
 .msn_layout {
     font-size: 100%;
+}
+
+#conteudo {
+    margin: 0% 15% 0% 15%;
 }
