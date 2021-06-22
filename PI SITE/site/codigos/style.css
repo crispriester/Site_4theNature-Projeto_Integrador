@@ -18,37 +18,153 @@ body {
 }
 
 .logo_menu {
-    width: 100px;
+    width: 75px;
     float: left;
     margin-left: 3%;
 }
 
 #join {
-    border-color: rgb(25, 145, 25);
+    border-color: rgb(13, 15, 13);
     border-radius: 15px;
-}
-
-.folhas_layout {
-    width: 45%;
-    height: 30%;
-}
-
-.box_layout {
-    float: left;
-    margin: 15% 10% 0% 15%;
-    padding: 5% 2% 5% 2%;
-    text-align: center;
-}
-
-.subtitle_layout {
-    font-size: 180%;
-    background-color: none;
-}
-
-.msn_layout {
-    font-size: 100%;
 }
 
 #conteudo {
     margin: 0% 15% 0% 15%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ :target {
+    scroll-margin-top: .8em;
+}
+
+#menu-transparent {
+    background-color: transparent;
+    transition: all 0.2s;
+}
+
+.menu-black {
+    background-color: rgba(0, 0, 0, 0.83);
+    transition: all 0.2s;
+}
+
+.height-100 {
+    height: 100vh;
+}
+
+.static-background {
+    position: relative;
+    background: url(../imagens/folhas_fundo4.jpg) center center fixed;
+    background-size: cover;
+}
+
+#img-background-home {
+    position: relative;
+    color: #fff;
+}
+
+.position-relative {
+    position: relative !important;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.table {
+    position: relative;
+    display: table;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.table-middle-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.image-darker {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#border {
+    border: 6px solid floralwhite;
+    padding: 5vh 0vh 5vh 0vh;
+}
+
+#img-background-home h1 {
+    font-size: 60px;
+    font-weight: 100;
+    color: white;
+}
+
+#img-background-home p {
+    font-size: 20px;
+    font-weight: 100;
+    color: white;
+}
+
+.triangle {
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.triangle p {
+    display: block;
+    text-align: center;
+    bottom: 0;
+}
+
+.triangle img {
+    width: 14vh;
+    -webkit-animation: action 1s infinite alternate;
+    animation: action 1s infinite alternate;
+}
+
+@-webkit-keyframes action {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes action {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.triangle img:hover {
+    transform: scale(1.1)
+}
+
+@media only screen and (max-width: 768px) {
+    #img-background-home h1 {
+        font-size: 40px;
+        font-weight: 100;
+        color: white;
+    }
+    #img-background-home p {
+        font-size: 15px;
+        font-weight: 100;
+        color: white;
+    }
+    #border {
+        border: 4px solid floralwhite;
+        padding: 5vh 0vh 5vh 0vh;
+    }
 }
