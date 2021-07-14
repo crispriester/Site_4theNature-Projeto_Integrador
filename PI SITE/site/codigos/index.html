@@ -15,34 +15,32 @@
     <script type="text/javascript">
         jQuery(function() {
             jQuery(window).scroll(function() {
-                if (jQuery(this).scrollTop() < 110) {
-                    $("#menu-transparent").removeClass("menu-black");
-                } else {
+                if (jQuery(this).scrollTop() > 100) {
                     $("#menu-transparent").addClass("menu-black");
+                } else {
+                    $("#menu-transparent").removeClass("menu-black");
                 }
             });
         });
     </script>
 
-    <style>
-        .menu-black {
-            background-color: rgba(0, 0, 0, 0.83);
-            transition: all 0.8s;
-        }
-    </style>
 </head>
-
 
 <body>
 
+    <!-- Coisas pra arrumar:
+Menu
+js
+imagem sustentabilidade
+-->
 
     <!--=== Menu ===-->
 
     <header id="navbar-default">
 
-        <nav role="navigation" data-offset-top="100" data-spy="affix" class="navbar fixed-top navbar-expand-md navbar-dark shadow-sm p-2 mb-5 rounded menu-black" id="menu-transparent">
+        <nav role="navigation" data-offset-top="100" data-spy="affix" class="navbar fixed-top navbar-expand-md navbar-dark shadow-sm p-2 mb-5 menu-black rounded" id="menu-transparent">
             <div class="container-fluid">
-                <img src="../imagens/logo2.png" alt="logo" class="logo_menu">
+                <img src="../imagens/logo2.png" alt="logo" class="logo_menu float-left">
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -108,7 +106,7 @@
         <!--=== Começo do Sobre ===-->
         <section id="about">
             <div class="container position-relative height-100 shadow p-0 mt-3 ">
-                <div id="h1-about" class="w-50 z-index-1">
+                <div class="w-50 z-index-1 float-left position-relative">
                     <h1>Sobre</h1>
                 </div>
                 <div id="content-about" class="z-index-1">
@@ -122,7 +120,7 @@
                     </div>
                 </div>
 
-                <div id="image-about" class="height-100 w-50"></div>
+                <div id="image-about" class="height-100 w-50 position-relative float-left"></div>
 
             </div>
         </section>
@@ -130,10 +128,10 @@
 
         <!--=== Começo da Sustentabilidade ===-->
         <section id="sustainability">
-            <div class="mt-10 pt-15">
+            <div class="mt-10 pt-15 pb-15">
                 <img class="position-relative" id="branch-sustain" src="../imagens/galho_sustain.png" alt="galho com folhas">
-                <div class="container position-relative pt-20">
-                    <h1 class="title">Sustentabilidade</h1>
+                <div class="container position-relative pt-15">
+                    <h1>Sustentabilidade</h1>
 
                     <h2 class="mt-5 subtitles">O que é sustentabilidade e qual a sua importância?</h2>
                     <p class="mt-3 paragraphs text-justify lead ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis veniam officia minus aliquam, expedita porro esse nam est labore vitae atque, nihil magni dignissimos delectus hic sed optio quo ipsa.</p>
@@ -148,27 +146,27 @@
                                 <p class="text-justify lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
                             </div>
                             <div class="col-md-5">
-                                <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/composteira-sustain.jpg" data-holder-rendered="true">
+                                <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/composteira-sustentabilidade.png" data-holder-rendered="true">
                             </div>
                         </div>
 
-                        <div class="row featurette mt-4">
+                        <div class="row featurette mt-5">
                             <div class="col-md-7 order-md-2">
                                 <h3 class="featurette-heading">Diminua Seu Consumismo</h3>
                                 <p class="text-justify lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
                             </div>
                             <div class="col-md-4 order-md-1">
-                                <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/consumismo-sustain.jpg" data-holder-rendered="true">
+                                <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/consumismo-sustentabilidade.png" data-holder-rendered="true">
                             </div>
                         </div>
 
-                        <div class="row featurette mt-4">
+                        <div class="row featurette mt-5">
                             <div class="col-md-7">
                                 <h3 class="featurette-heading">Opte por materiais biodegradáveis</h3>
                                 <p class="text-justify lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
                             </div>
                             <div class="col-md-5">
-                                <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/biodegradaveis-sustain.jpg" data-holder-rendered="true">
+                                <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/biodegradaveis-sustentabilidade.png" data-holder-rendered="true">
                             </div>
                         </div>
                     </div>
@@ -179,64 +177,83 @@
 
         <!--=== Começo do Cadastro ===-->
         <section id="join">
-            <div id="tabs">
-                <div class="tab-links">
-                    <!-- o data- é um jeito de referenciar algum elemento, no caso: id='register' que está no tab-content-->
-                    <button class="button-tab" data-id="register" data-open>Juntar-se</button>
-                    <button class="button-tab" data-id="login">Login</button>
+            <div class="container position-relative shadow rounded mt-10">
+
+                <div id="tabs">
+                    <h1>Junte-se!</h1>
+                    <hr style="width: 10%; margin: auto; margin-bottom:3%; margin-top: 3%; color:rgb(129, 201, 78); height: 3px;">
+
+                    <p class="text-center lead">Faça parte da nossa rede!</p>
+                    <p class="text-center lead">Compartilhe seus feitos sustentáveis e veja os de outros também!</p>
+
+                    <div>
+                        <div class="row featurette mt-4" style="padding: 5% 5% 5% 5%;">
+                            <div class="col-md-7 order-md-2">
+                                <div class="tab-links ">
+                                    <!-- o data- é um jeito de referenciar algum elemento, no caso: id='register' que está no tab-content-->
+                                    <button class="button-tab" id="link-register" data-open>Juntar-se</button>
+                                    <button class="button-tab" id="link-login">Login</button>
+                                </div>
+                                <hr>
+                                <div class="tab-content">
+                                    <section id="register">
+                                        <form>
+                                            <div class="col-md-10 form-group ">
+                                                <label for="exampleInputName1 ">Nome *</label>
+                                                <input type="text " id="exampleInputName1 " required=" " class="input-lg bdr-rad-reset form-control ">
+                                            </div>
+                                            <div class="col-md-10 form-group ">
+                                                <label for="exampleInputEmail1 ">E-mail *</label>
+                                                <input type="email " id="exampleInputEmail1 " required=" " class="input-lg bdr-rad-reset form-control ">
+                                            </div>
+                                            <div class="col-md-10 form-group ">
+                                                <label for="exampleInputSubject1 ">Senha *</label>
+                                                <input type="password " id="exampleInputSubject1 " required=" " class="input-lg bdr-rad-reset form-control ">
+                                            </div>
+                                            <div class="col-md-3 col-md-offset-4 ">
+                                                <button type="submit " class="btn btn-lg btn-c-primary bdr-rad-reset m-t-20 center-block ">Juntar-se</button>
+                                            </div>
+                                        </form>
+                                    </section>
+                                    <section id="login">
+                                        <form>
+                                            <div class="col-md-10 form-group ">
+                                                <label for="exampleInputEmail1 ">E-mail *</label>
+                                                <input type="email " id="exampleInputEmail1 " required=" " class="input-lg bdr-rad-reset form-control ">
+                                            </div>
+                                            <div class="col-md-10 form-group ">
+                                                <label for="exampleInputSubject1 ">Senha *</label>
+                                                <input type="password " id="exampleInputSubject1 " required=" " class="input-lg bdr-rad-reset form-control ">
+                                            </div>
+                                            <div class="col-md-3 col-md-offset-4 ">
+                                                <button type="submit " class="btn btn-lg btn-c-primary bdr-rad-reset m-t-20 center-block ">Login</button>
+                                            </div>
+                                        </form>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="col-md-4 order-md-1">
+                                <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/foto-juntar-se.png" data-holder-rendered="true">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <hr>
-                <div class="tab-content">
-                    <section id="register">
-                        <form>
-                            <div class="col-md-6 form-group">
-                                <label for="exampleInputName1">Nome *</label>
-                                <input type="text" id="exampleInputName1" required="" class="input-lg bdr-rad-reset form-control">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for="exampleInputEmail1">E-mail *</label>
-                                <input type="email" id="exampleInputEmail1" required="" class="input-lg bdr-rad-reset form-control">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for="exampleInputSubject1">Senha *</label>
-                                <input type="password" id="exampleInputSubject1" required="" class="input-lg bdr-rad-reset form-control">
-                            </div>
-                            <div class="col-md-4 col-md-offset-4">
-                                <button type="submit" class="btn btn-lg btn-c-primary bdr-rad-reset m-t-20 center-block">Juntar-se</button>
-                            </div>
-                        </form>
-                    </section>
-                    <section id="login">
-                        <form>
-                            <div class="col-md-6 form-group">
-                                <label for="exampleInputEmail1">E-mail *</label>
-                                <input type="email" id="exampleInputEmail1" required="" class="input-lg bdr-rad-reset form-control">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for="exampleInputSubject1">Senha *</label>
-                                <input type="password" id="exampleInputSubject1" required="" class="input-lg bdr-rad-reset form-control">
-                            </div>
-                            <div class="col-md-4 col-md-offset-4">
-                                <button type="submit" class="btn btn-lg btn-c-primary bdr-rad-reset m-t-20 center-block">Login</button>
-                            </div>
-                        </form>
-                    </section>
-                </div>
-            </div>
         </section>
         <!--=== Fim do Cadastro ===-->
-
+        <br>
         <!--=== Começo do Rodapé ===-->
         <footer>
+            <div class="footer">
 
+            </div>
         </footer>
     </main>
 
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="../codigos/script.js"></script>
+    <script type="text/javascript " src="script.js "></script>
+    <script type="text/javascript " src="http://code.jquery.com/jquery-1.7.2.min.js "></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js " integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf " crossorigin="anonymous "></script>
 </body>
 
 </html>
