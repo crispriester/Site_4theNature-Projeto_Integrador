@@ -14,16 +14,20 @@
 
     <script type="text/javascript">
         jQuery(function() {
+
             jQuery(window).scroll(function() {
+
                 if (jQuery(this).scrollTop() > 100) {
-                    $("#menu-transparent").addClass("menu-black");
+                    //alert("opa 1");
+                    $("#menu-transparent").addClass("bg-dark");
                 } else {
-                    $("#menu-transparent").removeClass("menu-black");
+                    //alert("opa 2");
+                    $("#menu-transparent").removeClass("bg-dark");
                 }
+
             });
         });
     </script>
-
 </head>
 
 <body>
@@ -38,7 +42,7 @@ imagem sustentabilidade
 
     <header id="navbar-default">
 
-        <nav role="navigation" data-offset-top="100" data-spy="affix" class="navbar fixed-top navbar-expand-md navbar-dark shadow-sm p-2 mb-5 menu-black rounded" id="menu-transparent">
+        <nav role="navigation" data-offset-top="100" data-spy="affix" class="navbar fixed-top navbar-expand-md navbar-dark shadow-sm p-2 mb-5 rounded" id="menu-transparent">
             <div class="container-fluid">
                 <img src="../imagens/logo2.png" alt="logo" class="logo_menu float-left">
 
@@ -144,6 +148,7 @@ imagem sustentabilidade
                             <div class="col-md-7">
                                 <h3 class="featurette-heading">Faça uma composteira em casa</h3>
                                 <p class="text-justify lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                                <button>Saiba Mais</button>
                             </div>
                             <div class="col-md-5">
                                 <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/composteira-sustentabilidade.png" data-holder-rendered="true">
@@ -154,6 +159,7 @@ imagem sustentabilidade
                             <div class="col-md-7 order-md-2">
                                 <h3 class="featurette-heading">Diminua Seu Consumismo</h3>
                                 <p class="text-justify lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                                <button>Saiba Mais</button>
                             </div>
                             <div class="col-md-4 order-md-1">
                                 <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/consumismo-sustentabilidade.png" data-holder-rendered="true">
@@ -164,6 +170,7 @@ imagem sustentabilidade
                             <div class="col-md-7">
                                 <h3 class="featurette-heading">Opte por materiais biodegradáveis</h3>
                                 <p class="text-justify lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                                <button>Saiba Mais</button>
                             </div>
                             <div class="col-md-5">
                                 <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/biodegradaveis-sustentabilidade.png" data-holder-rendered="true">
@@ -200,18 +207,18 @@ imagem sustentabilidade
                                         <form>
                                             <div class="col-md-10 form-group ">
                                                 <label for="exampleInputName1 ">Nome *</label>
-                                                <input type="text " id="exampleInputName1 " required=" " class="input-lg bdr-rad-reset form-control ">
+                                                <input type="text" id="exampleInputName1 " required=" " class="input-lg bdr-rad-reset form-control ">
                                             </div>
                                             <div class="col-md-10 form-group ">
                                                 <label for="exampleInputEmail1 ">E-mail *</label>
-                                                <input type="email " id="exampleInputEmail1 " required=" " class="input-lg bdr-rad-reset form-control ">
+                                                <input type="email" id="exampleInputEmail1 " required=" " class="input-lg bdr-rad-reset form-control ">
                                             </div>
                                             <div class="col-md-10 form-group ">
                                                 <label for="exampleInputSubject1 ">Senha *</label>
-                                                <input type="password " id="exampleInputSubject1 " required=" " class="input-lg bdr-rad-reset form-control ">
+                                                <input type="password" id="exampleInputSubject1 " required=" " class="input-lg bdr-rad-reset form-control ">
                                             </div>
                                             <div class="col-md-3 col-md-offset-4 ">
-                                                <button type="submit " class="btn btn-lg btn-c-primary bdr-rad-reset m-t-20 center-block ">Juntar-se</button>
+                                                <button type="submit" class="btn btn-c-primary bdr-rad-reset m-t-20 center-block bg-success mt-3">Juntar-se</button>
                                             </div>
                                         </form>
                                     </section>
@@ -219,33 +226,80 @@ imagem sustentabilidade
                                         <form>
                                             <div class="col-md-10 form-group ">
                                                 <label for="exampleInputEmail1 ">E-mail *</label>
-                                                <input type="email " id="exampleInputEmail1 " required=" " class="input-lg bdr-rad-reset form-control ">
+                                                <input type="email" id="exampleInputEmail1 " required=" " class="input-lg bdr-rad-reset form-control ">
                                             </div>
                                             <div class="col-md-10 form-group ">
                                                 <label for="exampleInputSubject1 ">Senha *</label>
-                                                <input type="password " id="exampleInputSubject1 " required=" " class="input-lg bdr-rad-reset form-control ">
+                                                <input type="password" id="exampleInputSubject " required=" " class="input-lg bdr-rad-reset form-control ">
                                             </div>
                                             <div class="col-md-3 col-md-offset-4 ">
-                                                <button type="submit " class="btn btn-lg btn-c-primary bdr-rad-reset m-t-20 center-block ">Login</button>
-                                            </div>
+                                                <button type="submit" class="btn btn-c-primary bdr-rad-reset m-t-20 center-block bg-success mt-3">Login</button>
                                         </form>
                                     </section>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4 order-md-1">
-                                <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/foto-juntar-se.png" data-holder-rendered="true">
+                                <div class="col-md-4 order-md-1">
+                                    <img class="featurette-image img-fluid mx-auto images-sustain" data-src="holder.js/500x500/auto" alt="500x500" src="../imagens/foto-juntar-se.png" data-holder-rendered="true">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
         </section>
         <!--=== Fim do Cadastro ===-->
-        <br>
-        <!--=== Começo do Rodapé ===-->
-        <footer>
-            <div class="footer">
 
+        <!--=== Começo do Rodapé ===-->
+        <footer class="text-center text-lg-start text-white mt-10">
+
+            <!-- Section: Links  -->
+            <section class="pt-5">
+                <hr class="mb-4 mt-0 d-inline-block mx-auto w-100" style="height: 3px;">
+                <div class="container text-center text-md-start">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold">4the Nature</h6>
+                            <hr class="mb-4 mt-0 d-inline-block mx-auto w-50" style="height: 3px;">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minus autem voluptates deleniti possimus, dolorem porro nulla dignissimos cum numquam, cupiditate deserunt praesentium recusandae tenetur. Provident ex beatae asperiores quis!
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Criadores</h6>
+                            <hr class="mb-4 mt-0 d-inline-block mx-auto w-50" style="height: 3px;">
+                            <p class="text-white">Cristina Priester</p>
+                            <p class="text-white">Gabriel Hiebert</p>
+                            <p class="text-white">Maria Fernanda Scaburri</p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Contato</h6>
+                            <hr class="mb-4 mt-0 d-inline-block mx-auto w-50" style="height: 3px;">
+                            <p>Blumenau, SC, Brasil</p>
+                            <p>4thenature@gmail</p>
+                            <p>+ 55 47 98499-9999</p>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+            </section>
+            <!-- Section: Links  -->
+
+            <!-- Copyright -->
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                © 2021 Copyright:
+                <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
             </div>
+            <!-- Copyright -->
         </footer>
     </main>
 

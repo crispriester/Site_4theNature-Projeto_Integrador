@@ -1,3 +1,41 @@
+// função que mostra um conteúdo e esconde os outros
+function showContent(identificator) {
+    // esconde todos os conteúdos
+    $("#register").addClass('d-none');
+    $("#login").addClass('d-none');
+    // torna o conteúdo escolhido visível
+    $("#" + identificator).removeClass('d-none');
+}
+
+// função para quando a página carregar, o juntar-se ser o primeiro a aparecer.
+window.addEventListener('load', () => {
+    document.getElementById("link-register").click();
+    $("#link-register").addClass("active");
+})
+
+//função que ativa e desativa um elemento
+function activeClass(active, unactive) {
+    $(active).addClass("active");
+    $(unactive).removeClass("active");
+}
+
+// código para mapear click do link Inicio
+$(document).on("click", "#link-register", function() {
+    showContent("register");
+    activeClass("#link-register", "#link-login")
+
+});
+
+// código para mapear click do link Inicio
+$(document).on("click", "#link-login", function() {
+    showContent("login");
+    activeClass("#link-login", "#link-register")
+
+});
+
+
+
+
 //querySelector vai ser ligado ao contexto e ao escopo do document
 /*const $ = document.querySelector.bind(document)
 
@@ -63,20 +101,3 @@ window.addEventListener('load', () => {
 
 
 */
-// função que mostra um conteúdo e esconde os outros
-function mostrar_conteudo(identificador) {
-    // esconde todos os conteúdos
-    $("#register").addClass('d-none');
-    $("#login").addClass('d-none');
-    // torna o conteúdo escolhido visível
-    $("#" + identificador).removeClass('d-none');
-}
-
-// código para mapear click do link Inicio
-$(document).on("click", "#link-register", function() {
-    mostrar_conteudo("register");
-});
-// código para mapear click do link Inicio
-$(document).on("click", "#link-login", function() {
-    mostrar_conteudo("login");
-});
