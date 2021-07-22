@@ -54,6 +54,14 @@
         margin-top: 10vh;
     }
     
+    .mt-15 {
+        margin-top: 15vh;
+    }
+    
+    .mb-10 {
+        margin-bottom: 10vh;
+    }
+    
     .pt-15 {
         padding-top: 15vh;
     }
@@ -66,8 +74,20 @@
         height: 100vh;
     }
     
+    .height-50 {
+        height: 50vh;
+    }
+    
+    .height-5 {
+        height: 5vh;
+    }
+    
     .image-darker {
         background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .image-lighter {
+        background-color: rgba(255, 255, 255, 0.412);
     }
     
     .z-index-1 {
@@ -76,6 +96,13 @@
     
     .float-left {
         float: left;
+    }
+    
+    .content-vertical-middle {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
     }
     /* ACABOU */
     /* CSS PARA A BARRA DE SCROLL */
@@ -220,13 +247,6 @@
         font-weight: 100;
     }
     
-    #content-about {
-        width: 100%;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    
     #content-about>div {
         background-color: darkolivegreen;
         width: 400px;
@@ -359,6 +379,17 @@
         width: 100%;
         height: auto;
     }
+    /* COMEÇO CSS DICA 3 */
+    
+    #bio-background-image {
+        background: url(../imagens/biodegradaveis.png) center center;
+        background-size: cover;
+    }
+    
+    #bio-background-image h1 {
+        text-shadow: 1px 1px 3px black;
+        font-size: 90px;
+    }
     /* CSS PARA TELAS MENORES DE 1185px */
     
     @media only screen and (max-width: 1200px) {
@@ -442,51 +473,23 @@
         #texts-about {
             margin-top: 5%;
         }
-        /*
-        #h1-about {
-            position: relative;
-            float: left;
+        #bio-background-image h1 {
+            text-shadow: 1px 1px 5px grey;
+            font-size: 50px;
         }
-        #content-about {
-            z-index: 1;
-            margin-left: 5px;
-            margin-right: 5px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        #texts-about p {
-            text-align: justify;
-            font-size: 17px;
-            color: white;
-        }
-        #border1-about {
-            z-index: 1;
-            bottom: -20px;
-            left: -30px;
-            width: 45px;
-            height: 40px;
-        }
-        #border2-about {
-            z-index: -1;
-            bottom: 0px;
-            left: -55px;
-            width: 58px;
-            height: 53px;
-        }
-        #image-about {
-            position: relative;
-            float: left;
-            right: 0;
-            background: url(../imagens/foto-sobre-5.jpg);
-            filter: saturate(70%);
-            opacity: 0.7;
-            background-size: cover;
-        }*/
     }
     
     @media only screen and (max-width: 400px) {
         #about h1 {
             font-size: 45px;
+        }
+        #bio-background-image h1 {
+            font-size: 45px;
+        }
+    }
+    
+    @media only screen and (max-width: 330px) {
+        #bio-background-image h1 {
+            font-size: 33px;
         }
     }

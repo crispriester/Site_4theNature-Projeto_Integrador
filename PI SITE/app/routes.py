@@ -1,7 +1,7 @@
 from flask import Flask, request
 from servicos import pessoa_servico
 
-app = Flask("Treinamento")
+app = Flask("4thenature")
 
 # CONTROLADOR DE PESSOA
 
@@ -22,10 +22,12 @@ def concederAcessoParaPessoa():
     if("email" not in body):
         return gerarResposta(400, "O parâmetro 'email' é obrigatório.")            
 
-    pessoa_servico.concederAcessoParaPessoa(body["senha"], body["email"])
+    person = pessoa_servico.concederAcessoParaPessoa(body["senha"], body["email"])
 
-    return gerarResposta(200, "Login Feito", "login", body)
-
+    if person == True:
+        return gerarResposta(200, "Login Feito", "login", body)
+    else:
+        return gerarResposta(400, "Email ou senha inválidos", "login", body)
 
 
 @app.route("/pessoa/cadastrar", methods=["POST"])
@@ -42,9 +44,12 @@ def cadastrarPessoa():
     if("email" not in body):
         return gerarResposta(400, "O parâmetro 'email' é obrigatório.")            
 
-    pessoa_servico.cadastrarPessoa(body["nome"], body["senha"], body["email"])
+    person = pessoa_servico.cadastrarPessoa(body["nome"], body["senha"], body["email"])
 
-    return gerarResposta(200, "Pessoa inserida", "pessoa", body)
+    if person == True:
+        return gerarResposta(200, "Pessoa cadastrada", "pessoa", body)
+    else:
+        return gerarResposta(400, "Este email já é cadastrado", "pessoa", body)
 
 
 @app.route("/pessoa/editar/id=<pessoaId>", methods=["PUT"])

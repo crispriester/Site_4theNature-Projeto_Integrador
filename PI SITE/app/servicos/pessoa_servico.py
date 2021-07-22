@@ -6,7 +6,7 @@ nome_db = "dados/4thenature.db"
 
 def obterPessoasPeloNome(nome): 
         
-    conexao = sqlite3.connect("dados/evento.db")
+    conexao = sqlite3.connect(nome_db)
     cursor = conexao.cursor()
 
     lista_pessoas = []
@@ -32,7 +32,7 @@ def obterPessoaPeloEmail(email):
     conexao.close()
     return(email_existe)
 
-def concederAcessoParaPessoa(email, senha):
+def concederAcessoParaPessoa(senha, email):
     conexao = sqlite3.connect(nome_db)
     cursor = conexao.cursor()
 
@@ -49,7 +49,7 @@ def concederAcessoParaPessoa(email, senha):
         conexao.close()
         return False
 
-def cadastrarPessoa(nome, email, senha):
+def cadastrarPessoa(nome, senha, email):
     conexao = sqlite3.connect(nome_db)
     cursor = conexao.cursor()
 
