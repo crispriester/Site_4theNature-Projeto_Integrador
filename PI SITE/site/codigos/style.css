@@ -87,7 +87,7 @@
     }
     
     .image-lighter {
-        background-color: rgba(255, 255, 255, 0.412);
+        background-color: rgba(255, 255, 255, 0.4);
     }
     
     .z-index-1 {
@@ -103,6 +103,11 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+    }
+    
+    .h2-dicas {
+        color: rgb(129, 201, 78);
+        font-size: 50px;
     }
     /* ACABOU */
     /* CSS PARA A BARRA DE SCROLL */
@@ -390,6 +395,17 @@
         text-shadow: 1px 1px 3px black;
         font-size: 90px;
     }
+    
+    #image-bio {
+        float: right;
+        width: 450px;
+        margin: 0px 0px 10px 15px;
+    }
+    
+    #graphic_bio {
+        background: url(../imagens/grafico_decomposicao.png);
+        background-size: cover;
+    }
     /* CSS PARA TELAS MENORES DE 1185px */
     
     @media only screen and (max-width: 1200px) {
@@ -401,6 +417,7 @@
             width: 45%;
         }
     }
+    /* CSS TELAS MENORES QUE 1000px */
     
     @media only screen and (max-width: 1000px) {
         #about h1 {
@@ -410,6 +427,16 @@
         }
         #branch-sustain {
             width: 0;
+        }
+    }
+    /* CSS TELAS MENORES QUE 993px */
+    
+    @media only screen and (max-width: 993px) {
+        #image-bio {
+            float: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto
         }
     }
     /* CSS TELAS MENORES QUE 768px */
@@ -476,6 +503,12 @@
         #bio-background-image h1 {
             text-shadow: 1px 1px 5px grey;
             font-size: 50px;
+        }
+    }
+    
+    @media only screen and (max-width: 520px) {
+        #image-bio {
+            width: 100%;
         }
     }
     

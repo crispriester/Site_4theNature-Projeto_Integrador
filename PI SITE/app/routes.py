@@ -1,18 +1,18 @@
 from flask import Flask, request
-from servicos import pessoa_servico
+from servicos import perfil_servico
 
 app = Flask("4thenature")
 
 # CONTROLADOR DE PESSOA
 
-@app.route("/pessoa/obter/nome=<pessoaNome>", methods=["GET"])
-def obterPessoasPeloNome(pessoaNome: str):
+@app.route("/perfil/obter/nome=<perfilNome>", methods=["GET"])
+def obterPerfisPeloNome(perfilNome: str):
 
-    pessoas = pessoa_servico.obterPessoasPeloNome(pessoaNome)
-    return gerarResposta(200, "Pessoas Obtidas", "Pessoas", pessoas)
+    perfis = perfil_servico.obterPerfisPeloNome(perfilNome)
+    return gerarResposta(200, "Perfil Obtidas", "perfil", perfis)
 
-@app.route("/pessoa/login", methods=["GET"])
-def concederAcessoParaPessoa():
+@app.route("/perfil/login", methods=["GET"])
+def concederAcessoAoPerfil():
     
     body = request.get_json()
 
@@ -22,16 +22,16 @@ def concederAcessoParaPessoa():
     if("email" not in body):
         return gerarResposta(400, "O parâmetro 'email' é obrigatório.")            
 
-    person = pessoa_servico.concederAcessoParaPessoa(body["senha"], body["email"])
+    perfil = perfil_servico.concederAcessoAoPerfil(body["senha"], body["email"])
 
-    if person == True:
+    if perfil == True:
         return gerarResposta(200, "Login Feito", "login", body)
     else:
         return gerarResposta(400, "Email ou senha inválidos", "login", body)
 
 
-@app.route("/pessoa/cadastrar", methods=["POST"])
-def cadastrarPessoa():
+@app.route("/perfil/cadastrar", methods=["POST"])
+def cadastrarPerfil():
 
     body = request.get_json()
 
@@ -44,16 +44,16 @@ def cadastrarPessoa():
     if("email" not in body):
         return gerarResposta(400, "O parâmetro 'email' é obrigatório.")            
 
-    person = pessoa_servico.cadastrarPessoa(body["nome"], body["senha"], body["email"])
+    perfil = perfil_servico.cadastrarPerfil(body["nome"], body["senha"], body["email"])
 
-    if person == True:
-        return gerarResposta(200, "Pessoa cadastrada", "pessoa", body)
+    if perfil == True:
+        return gerarResposta(200, "Perfil cadastrado", "perfil", body)
     else:
-        return gerarResposta(400, "Este email já é cadastrado", "pessoa", body)
+        return gerarResposta(400, "Este email já é cadastrado", "perfil", body)
 
 
-@app.route("/pessoa/editar/id=<pessoaId>", methods=["PUT"])
-def editarPessoa(pessoaId: str):
+@app.route("/perfil/editar/id=<perfilId>", methods=["PUT"])
+def editarPerfil(perfilId: str):
 
     body = request.get_json()
     
@@ -63,9 +63,9 @@ def editarPessoa(pessoaId: str):
     if("senha" not in body):
         return gerarResposta(400, "O parâmetro 'senha' é obrigatório.")
 
-    pessoa_servico.editarPessoa(body["nome"], body["senha"], pessoaId)
+    perfil_servico.editarPerfil(body["nome"], body["senha"], perfilId)
 
-    return gerarResposta(200, "Pessoa editada", "pessoa", body)
+    return gerarResposta(200, "Perfil editado", "perfil", body)
 
 
 

@@ -12,13 +12,61 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
+    <!-- Gráfico -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <style>
+        #chartdiv {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Sacolinhas Convencionais  vs  Sacolinhas Biodegradáveis"
+                },
+                axisX: {
+                    interval: 1
+                },
+                axisY: {
+
+                    title: "Tempo de Decomposição",
+                    includeZero: true,
+                },
+                data: [{
+                    type: "bar",
+                    toolTipContent: "<img src=\"../imagens/\"{url}\"\" style=\"width:40px; height:20px;\"> <b>{label}</b><br>Tempo: {y} anos<br>",
+                    dataPoints: [{
+                            label: "Biodegradáveis",
+                            y: 20,
+                            url: "sacola-biodegradavel-grafico.jpg"
+                        }, {
+                            label: "Convencionais",
+                            y: 100,
+                            url: "Sacolinha-plástica-grafico.jpg"
+                        },
+
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
 </head>
 
 <body>
     <!--=== Menu ===-->
     <header id="navbar-default">
 
-        <nav role="navigation" data-offset-top="100" data-spy="affix" class="navbar fixed-top navbar-expand-md navbar-light bg-light shadow-sm p-2 mb-5 rounded">
+        <nav role="navigation" data-offset-top="100" data-spy="affix" class="navbar fixed-top navbar-expand-md navbar-light bg-light shadow-sm p-2 mb-5">
             <div class="container-fluid">
                 <img src="../imagens/logo2.png" alt="logo" class="logo_menu float-left">
 
@@ -29,7 +77,7 @@
                     <div class="navbar-nav" style="margin-right: 3%;">
                         <a class="nav-link d-flex justify-content-center" href="#bio">Biodegradável</a>
                         <a class="nav-link d-flex justify-content-center" href="#sustain-options">Opções Sustentáveis</a>
-                        <a class="nav-link active d-flex justify-content-center" href="#others">Outros</a>
+                        <a class="nav-link d-flex justify-content-center" href="#others">Outros</a>
                     </div>
                 </div>
             </div>
@@ -37,17 +85,102 @@
     </header>
     <!--=== Menu Fim ===-->
 
-    <!--=== Biodegradáveis Começa ===-->
-    <section id="bio">
-        <div class="container mt-15">
-            <div id="bio-background-image" class="mt-10 mb-4 height-50 w-100 position-relative shadow rounded">
-                <div class="image-lighter h-100">
-                    <h1 class="z-index-1 text-light text-center content-vertical-middle"><span style="color: rgb(79, 107, 47);">BIO</span>DEGRADÁVEIS</h1>
-                </div>
+    <!--=== Tela Início ===-->
+    <div class="container mt-15">
+        <div id="bio-background-image" class="mt-10 mb-4 height-50 w-100 position-relative shadow rounded">
+            <div class="image-lighter h-100">
+                <h1 class="z-index-1 text-light text-center content-vertical-middle"><span style="color: rgb(79, 107, 47);">BIO</span>DEGRADÁVEIS</h1>
             </div>
-            <div class="w-100 height-5 rounded" style="background-color: rgb(88, 119, 53);"></div>
+        </div>
+        <div class="w-100 height-5 rounded" style="background-color: rgb(88, 119, 53);"></div>
+        <hr style="height: 4px; color: rgb(82, 109, 51);">
+    </div>
+    <!--=== Tela Inífio Fim ===-->
+
+    <!--=== O Que São Começa ===-->
+    <section id="bio">
+        <div class="container position-relative mt-10 mb-10">
+            <h2 class="h2-dicas">O Que São?</h2>
+            <img class="position-relative" id="image-bio" src="../imagens/image-bio.png" alt="galho com folhas">
+            <p class="mt-3 paragraphs text-justify lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero, illum rerum! Natus, in quas! Perspiciatis accusamus repudiandae, officia accusantium dolore eum, in temporibus ratione quod saepe, quasi quas veniam quae?</p>
+            <p class="mt-3 paragraphs text-justify lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam id nobis magni. Hic, expedita tempora accusamus consequatur earum voluptates illum, dolore non vitae eveniet eius quia. Autem est illum placeat.</p>
+            <p class="mt-3 paragraphs text-justify lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis veniam officia minus aliquam, expedita porro esse nam est labore vitae atque, nihil magni dignissimos delectus hic sed optio quo ipsa.</p>
+        </div>
+
+        <div class="container position relative mb-10">
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </div>
+
+    </section>
+    <!--=== O Que São Termina ===-->
+
+    <hr class="container mb-10" style="height: 4px; color: rgb(82, 109, 51);">
+
+    <!--=== Opções Bio Começa ===-->
+    <section id="sustain-options">
+        <div class="container position-relative mb-10">
+            <h2 class="h2-dicas">Opções Sustentáveis</h2>
         </div>
     </section>
+
+
+    <!--=== Começo do Rodapé ===-->
+    <footer class="text-center text-lg-start text-white mt-10">
+
+        <!-- Section: Links  -->
+        <section class="pt-5">
+            <hr class="mb-4 mt-0 d-inline-block mx-auto w-100" style="height: 3px;">
+            <div class="container text-center text-md-start">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">4the Nature</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto w-50" style="height: 3px;">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minus autem voluptates deleniti possimus, dolorem porro nulla dignissimos cum numquam, cupiditate deserunt praesentium recusandae tenetur. Provident ex beatae asperiores quis!
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Criadores</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto w-50" style="height: 3px;">
+                        <p class="text-white">Cristina Priester</p>
+                        <p class="text-white">Gabriel Hiebert</p>
+                        <p class="text-white">Maria Fernanda Scaburri</p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Contato</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto w-50" style="height: 3px;">
+                        <p>Blumenau, SC, Brasil</p>
+                        <p>4thenature@gmail</p>
+                        <p>+ 55 47 98499-9999</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2021 Copyright:
+            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
 
     <script type="text/javascript " src="script.js "></script>
     <script type="text/javascript " src="http://code.jquery.com/jquery-1.7.2.min.js "></script>
