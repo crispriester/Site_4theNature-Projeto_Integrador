@@ -14,7 +14,7 @@ class Curtida:
 
     #Expressar Curtida em forma de texto:
     def __str__(self) -> str:
-        return f"id: {self.id}. data: {self.data}. perfil: {self.perfil} publicação: {self.publicacao}."
+        return f"id: {self.id}. data: {self.data}. perfil: {self.perfil}. publicação: {self.publicacao}."
 
     def json(self):
         return{

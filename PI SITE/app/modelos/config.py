@@ -10,8 +10,8 @@ app = Flask(__name__)
 path = os.path.dirname(os.path.abspath(__file__))
 arquivobd = os.path.join(path, '4thenature.db')
 #3 - Informar que o banco de dados vai ser criado no arquivobd
-app.config['SQLAlchemy_DATABASE_URI'] = "sqlite:///" + arquivobd
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + arquivobd
 #4 - Remover warnings
-app.config['SQLAlchemy_TRAK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #5 - Cria vínculo com a biblioteca SQLAlchemy
 db = SQLAlchemy(app)

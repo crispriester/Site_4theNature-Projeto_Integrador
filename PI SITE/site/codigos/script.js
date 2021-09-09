@@ -1,3 +1,5 @@
+// Códigos usados nas abas da página home:
+
 // função que mostra um conteúdo e esconde os outros
 function showContent(identificator) {
     // esconde todos os conteúdos
@@ -34,7 +36,42 @@ $(document).on("click", "#link-login", function() {
 });
 
 
+//Script do gráfico da terceira dica -> Materiais Biodegradáveis:
+window.onload = function() {
 
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+            text: "Sacolinhas Convencionais  vs  Sacolinhas Biodegradáveis"
+        },
+        axisX: {
+            interval: 1
+        },
+        axisY: {
+            title: "Tempo de Decomposição em Anos",
+            includeZero: true,
+        },
+        data: [{
+
+            type: "bar",
+            toolTipContent: "<img src=\"../imagens/\"{url}\"\" style=\"width:40px; height:20px;\"> <b>{label}</b><br>Tempo: {y} anos<br>",
+            dataPoints: [{
+                    label: "Biodegradáveis",
+                    y: 20,
+                    url: "sacola-biodegradavel-grafico.jpg",
+                    color: "rgb(81, 189, 72)"
+                }, {
+                    label: "Convencionais",
+                    y: 100,
+                    url: "Sacolinha-plástica-grafico.jpg",
+                    color: "rgb(209, 107, 40)"
+                },
+
+            ]
+        }]
+    });
+    chart.render();
+}
 
 //querySelector vai ser ligado ao contexto e ao escopo do document
 /*const $ = document.querySelector.bind(document)
