@@ -1,8 +1,9 @@
 from publicacao import *
+from perfil import *
 from config import *
 
 #relação de composição com a classe Publicacao
-class Curtida:
+class Curtida(db.Model):
     #Atributos da Curtida:
     id = db.Column(db.Integer, primary_key= True)
     data = db.Column(db.String(254))
@@ -25,25 +26,3 @@ class Curtida:
             "publicacao_id" : self.publicacao_id,
             "publicacao" : self.publicacao.json() 
         }
-
-
-#Teste da classe Nova:
-if __name__ == "__main__":
-    #Apagar arquivo se houver:
-    if os.path.exists(arquivobd):
-        os.remove(arquivobd)
-
-    #Criar tabelas:
-    db.create_all()
-
-    #Teste da classe: (dados apenas criados na memória)
-    curtida1 = Curtida(data = "25/08/2021", perfil = perfil1, publicacao = publicacao2)
-    curtida2 = Curtida(data = "25/08/2021", perfil = perfil2, publicacao = publicacao3)
-    curtida3 = Curtida(data = "25/08/2021", perfil = perfil3, publicacao = publicacao1)
-
-    #Adicionar os dados na sessão de persistência:
-    db.session.add(curtida1)
-    db.session.add(curtida2)
-    db.session.add(curtida3)
-
-    db.session.commit()
