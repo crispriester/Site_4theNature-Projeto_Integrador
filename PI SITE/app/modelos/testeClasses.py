@@ -1,6 +1,6 @@
 import publicacao
 import perfil 
-import curtida
+#import curtida
 import comentario
 from config import *
 
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     db.session.add(publicacao2)
     db.session.add(publicacao3)
 
-
+    """
     #Teste da classe Curtida: (dados apenas criados na memória)
     curtida1 = curtida.Curtida(data = "25/08/2021", perfil = perfil1, publicacao = publicacao2)
     curtida2 = curtida.Curtida(data = "25/08/2021", perfil = perfil2, publicacao = publicacao3)
@@ -44,8 +44,7 @@ if __name__ == "__main__":
     db.session.add(curtida1)
     db.session.add(curtida2)
     db.session.add(curtida3)
-
-
+    """
     #Teste da classe Comentario: (dados apenas criados na memória)
     comentario1 = comentario.Comentario(comentario = "Que árvores lindas!", perfil = perfil2, publicacao = publicacao1)
     comentario2 = comentario.Comentario(comentario = "Quero placas solares também!", perfil = perfil3, publicacao = publicacao2)
@@ -88,7 +87,7 @@ if __name__ == "__main__":
         print(i.json())
         print("")
     
-
+'''
     #Teste da classe Curtida:
     curtidas = db.session.query(curtida.Curtida).all() 
     print("")
@@ -96,3 +95,4 @@ if __name__ == "__main__":
         print(i)
         print(i.json())
         print("")
+'''
