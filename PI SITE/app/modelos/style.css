@@ -120,6 +120,12 @@ footer hr {
     font-size: 50px;
 }
 
+.subtitles-dicas {
+    color: rgb(129, 201, 78);
+    margin-left: 10%;
+    font-size: 40px;
+}
+
 .lists li {
     color: rgb(60, 60, 60);
     font-size: 30px;
@@ -513,11 +519,9 @@ input {
 }
 
 .seta-impact-primeiradica {
-    width: 18%;
-}
-
-#centralization-steps {
-    width: 75%;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -589,6 +593,10 @@ input {
         font-size: 40px;
         margin: 0;
     }
+    .subtitles-dicas {
+        margin-left: 0%;
+        font-size: 32px;
+    }
     .mt-10 {
         margin-top: 5vh;
     }
@@ -644,6 +652,9 @@ input {
         text-shadow: 1px 1px 5px grey;
         font-size: 50px;
     }
+    .seta-impact-primeiradica {
+        height: 0;
+    }
 }
 
 @media only screen and (max-width: 520px) {
@@ -652,6 +663,9 @@ input {
     }
     #impact img {
         width: 100%;
+    }
+    #definition img {
+        width: 80%;
     }
 }
 
