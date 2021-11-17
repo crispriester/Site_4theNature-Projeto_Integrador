@@ -55,13 +55,13 @@ def excluir_usuario(usuario_id):
 #fim do cadastro de usuario
 
 #inicio do login
-@app.route("/login")
+@app.route("/login", methods=['POST'])
 def pegar_id_pelo_email():
    dados = request.get_json() #(force=True) dipensa Content-Tpe na requisição
-   usuario = Perfil.query.filter(Perfil.email == dados['email']).first()
-   return jsonify(usuario.id) if hasattr(usuario, 'id') else "Não encontrado"
+   usuario = Perfil.query.filter(Perfil.email == dados['email'], Perfil.senha == dados['senha']).first()
+   return jsonify({"resultado": "ok", "detalhes": usuario.json()}) if hasattr(usuario, 'id') else jsonify({"resultado": "Erro", "detalhes": "Usuario ou senha invalidos!"})
    print(usuario.id)
-   
+
 #Fim do login
 
 app.run(debug=True) 

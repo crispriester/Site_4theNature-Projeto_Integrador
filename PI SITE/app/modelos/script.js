@@ -139,9 +139,8 @@ window.addEventListener('load', () => {
 
 */
 
-
 // código para mapear click do botão incluir pessoa 
-$(document).on("click", "#btIncluirUsuario", function() {
+$(document).on("click", "#btIncluirUsuario", function () {
     //pegar dados da tela 
     nome = $("#campoNome").val();
     email = $("#campoEmail").val();
@@ -172,7 +171,6 @@ $(document).on("click", "#btIncluirUsuario", function() {
             alert(retorno.resultado + ":" + retorno.detalhes);
         }
     }
-
     function erroAoIncluir(retorno) {
         // informar mensagem de erro 
         alert("ERRO: " + retorno.resultado + ":" + retorno.detalhes);
@@ -180,7 +178,7 @@ $(document).on("click", "#btIncluirUsuario", function() {
 });
 
 // código para os ícones de excluir usuario (classe css) 
-$(document).on("click", ".excluir_usuario", function() {
+$(document).on("click", ".excluir_usuario", function () {
     // obter o ID do ícone que foi clicado 
     var componente_clicado = $(this).attr('id');
     // no id do ícone, obter o ID da usuario 
@@ -198,7 +196,7 @@ $(document).on("click", ".excluir_usuario", function() {
     function usuarioExcluido(retorno) {
         if (retorno.resultado == "ok") { // a operação deu certo? 
             // remover da tela a linha cujo usuario foi excluído
-            $("#linha_" + id_usuario).fadeOut(1000, function() {
+            $("#linha_" + id_usuario).fadeOut(1000, function () {
                 // informar resultado de sucesso 
                 alert("Usuário removido com sucesso!");
             });
@@ -207,9 +205,36 @@ $(document).on("click", ".excluir_usuario", function() {
             alert(retorno.resultado + ":" + retorno.detalhes);
         }
     }
-
     function erroAoExcluir(retorno) {
         // informar mensagem de erro 
         alert("erro ao excluir dados, verifique o backend: ");
+    }
+});
+
+// código para mapear click do botão Login 
+$(document).on("click", "#btLogin", function () {
+    //pegar dados da tela 
+    email = $("#campoEmailLogin").val();
+    senha = $("#campoSenhaLogin").val();
+    // preparar dados no formato json 
+    var dados = JSON.stringify({ email: email, senha: senha });
+    // fazer requisição para o back-end 
+    $.ajax({
+        url: 'http://localhost:5000/login',
+        type: 'POST',
+        dataType: 'json', // os dados são recebidos no formato json 
+        contentType: 'application/json', // tipo dos dados enviados 
+        data: dados, // estes são os dados enviados 
+        success: usuarioConectado, // chama a função listar para processar o resultado 
+        error: erroAoConectar
+    });
+    alert("belezinha!!!");
+    function usuarioConectado(resposta){
+        $.session.set('usuarioId', resposta.detalhes.id);
+        $.session.set('usuarioNome', resposta.detalhes.nome);
+        alert(resposta.detalhes.nome);
+    }
+    function erroAoConectar(){
+        alert("não funcionou");
     }
 });
