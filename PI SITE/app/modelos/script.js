@@ -139,7 +139,6 @@ window.addEventListener('load', () => {
 
 */
 
-
 // código para mapear click do botão incluir pessoa 
 $(document).on("click", "#btIncluirUsuario", function() {
     //pegar dados da tela 
@@ -214,7 +213,39 @@ $(document).on("click", ".excluir_usuario", function() {
     }
 });
 
-/* Script para clicar no ícone da foto e abrir o explorador de arquivos */
+// código para mapear click do botão Login 
+$(document).on("click", "#btLogin", function() {
+    //pegar dados da tela 
+    email = $("#campoEmailLogin").val();
+    senha = $("#campoSenhaLogin").val();
+    // preparar dados no formato json 
+    var dados = JSON.stringify({ email: email, senha: senha });
+    // fazer requisição para o back-end 
+    $.ajax({
+        url: 'http://localhost:5000/login',
+        type: 'POST',
+        dataType: 'json', // os dados são recebidos no formato json 
+        contentType: 'application/json', // tipo dos dados enviados 
+        data: dados, // estes são os dados enviados 
+        success: usuarioConectado, // chama a função listar para processar o resultado 
+        error: erroAoConectar
+    });
+    alert("belezinha!!!");
+
+    function usuarioConectado(resposta) {
+        $.session.set('usuarioId', resposta.detalhes.id);
+        $.session.set('usuarioNome', resposta.detalhes.nome);
+        alert(resposta.detalhes.nome);
+        window.location.href = "pagina-do-usuario.html";
+    }
+
+    function erroAoConectar() {
+        alert("não funcionou");
+    }
+});
+
+
+// Script para clicar no ícone da foto e abrir o explorador de arquivos 
 $("#imagem").click(function() {
     $("#arquivo").trigger('click');
 });
