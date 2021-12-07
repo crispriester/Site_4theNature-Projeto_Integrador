@@ -213,3 +213,8 @@ $(document).on("click", ".excluir_usuario", function() {
         alert("erro ao excluir dados, verifique o backend: ");
     }
 });
+
+/* Script para clicar no ícone da foto e abrir o explorador de arquivos */
+$("#imagem").click(function() {
+    $("#arquivo").trigger('click');
+});

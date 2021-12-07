@@ -40,6 +40,10 @@ footer hr {
 
 /* CLASSES QUE PODEM SER REAPROVEITADAS EM VÁRIOS CONTEXTOS */
 
+.btnPost {
+    width: 75px;
+}
+
 .reverse-item {
     transform: scaleX(-1);
 }
@@ -159,6 +163,10 @@ footer hr {
     position: relative;
     background: url(../imagens/folhasbananeira-3dica.jpg) center center;
     background-size: cover;
+}
+
+.cards {
+    width: 50%;
 }
 
 
@@ -537,6 +545,13 @@ input {
 }
 
 
+/* CSS DO FORUM */
+
+.background-socialforum {
+    background-color: rgba(0, 255, 0, 0.042);
+}
+
+
 /* CSS PARA TELAS MENORES DE 1185px */
 
 @media only screen and (max-width: 1200px) {
@@ -655,6 +670,9 @@ input {
     .seta-impact-primeiradica {
         height: 0;
     }
+    .cards {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 520px) {
@@ -722,14 +740,3 @@ input {
     margin-top: 80px !important;
     margin-bottom: 80px !important;
 }
-
-
-/*
-.clr-dark-sm {
-    color: #f5f5f5 !important;
-}
-
-.bg-alpha-primary-5 {
-    background-color: rgba(4, 129, 0, 0.5)
-}
-*/

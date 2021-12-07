@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Nature</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../imagens/faviconcolorida4.png">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- Meu CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <nav role="navigation" data-offset-top="100" data-spy="affix" class="navbar fixed-top navbar-expand-md navbar-light bg-light shadow-sm p-2 mb-5">
+            <div class="container-fluid">
+
+                <a href="index.html"><img src="../imagens/logo Social.png" alt="logo" class="logo_menu_dicas float-left"></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav" style="margin-right: 3%;">
+
+                        <form class="d-flex mt-2" style="height: 40px;">
+                            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+                            <input class="form-control me-2" type="search" placeholder="Pesquise uma pessoa" aria-label="Search">
+                        </form>
+
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                            <li class="nav-item dropdown">
+
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="../imagens/ícone_perfil.png" alt="ícone perfil" style="width: 40px;">
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Configurações</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Sair</a></li>
+                                </ul>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+        </div>
+    </nav>
+
+    <section>
+        <div class="container position-relative mt-15 background-socialforum shadow p-3 mb-5 rounded">
+
+            <div class="border shadow-sm mx-auto cards" style="background-color: rgba(255, 255, 255, 0.446);">
+                <form onsubmit="return false;" id="MyForm" enctype="multipart/form-data">
+
+                    <div class="mb-2 mx-2">
+                        <textarea rows="3" class="w-100 mt-2 p-1" required="required" maxlength="500" placeholder="Escreva sua legenda aqui..."></textarea>
+                    </div>
+
+                    <div class="mb-2 mx-2">
+                        <div class="row">
+
+                            <div class="col">
+                                <img src="../imagens/icone-fotografia.png" id="imagem" width="45px" style="cursor:pointer">
+                                <input id="arquivo" name="file" type="file" style="display:none">
+                                <label for="imagem" class="txtfoto">Foto</label>
+                            </div>
+
+                            <div class="col">
+                                <button type="button" style="float: left;" class="position-relative btn btn-outline-success shadow-sm">Postar</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!--Meu script:-->
+    <script type="text/javascript " src="script.js "></script>
+
+    <!--Até então, inútil para essa página, mas eu vou deixar por precaução:-->
+    <script type="text/javascript " src="http://code.jquery.com/jquery-1.7.2.min.js "></script>
+
+    <!--Script do menu-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js " integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf " crossorigin="anonymous "></script>
+
+</body>
+
+</html>
