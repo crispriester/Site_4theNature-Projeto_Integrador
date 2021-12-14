@@ -11,9 +11,11 @@
     <link rel="shortcut icon" href="../imagens/faviconcolorida4.png">
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <!-- Meu CSS -->
     <link rel="stylesheet" href="style.css">
@@ -21,18 +23,52 @@
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
+    <script type="text/javascript">
+
+        $(function () { // quandoo documento estiver pronto
+
+            $.ajax({
+                url: 'http://localhost:5000/listar_publicacao',
+                method: 'GET',
+                dataType: 'json', //os dados são recebidos no formato json
+                success: listar, // chama a função listar para processar o resultado
+                error: function () {
+                    alert("erro ao ler dados, verifique o backend");
+                }
+            });
+
+            function listar(publicacao) {
+                // percorrer a lista de publicações retornadas;
+                for (var i in publicacao) { //i vale a posição no vetor
+                    lin = '<tr id = "linha_' + publicacao[i].id + '">' + // elabora a linha de dados do usuarios
+                        '<td>' + publicacao[i].perfil.nome + '</td>' +
+                        '<td>' + publicacao[i].descricao + '</td>' +
+                        '<td> <img src="http://localhost:5000/get_image/' + publicacao[i].id + '"> </td>' +
+                        '</td>' +
+                        '</td>';
+                    //adiciona a linha no corpo da tabela
+                    $('#corpoTabelaPostagem').append(lin);
+                }
+            }
+        });
+    </script>
+
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-        <nav role="navigation" data-offset-top="100" data-spy="affix" class="navbar fixed-top navbar-expand-md navbar-light bg-light shadow-sm p-2 mb-5">
+        <nav role="navigation" data-offset-top="100" data-spy="affix"
+            class="navbar fixed-top navbar-expand-md navbar-light bg-light shadow-sm p-2 mb-5">
             <div class="container-fluid">
 
-                <a href="index.html"><img src="../imagens/logo Social.png" alt="logo" class="logo_menu_dicas float-left"></a>
+                <a href="index.html"><img src="../imagens/logo Social.png" alt="logo"
+                        class="logo_menu_dicas float-left"></a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -41,19 +77,23 @@
 
                         <form class="d-flex mt-2" style="height: 40px;">
                             <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-                            <input class="form-control me-2" type="search" placeholder="Pesquise uma pessoa" aria-label="Search">
+                            <input class="form-control me-2" type="search" placeholder="Pesquise uma pessoa"
+                                aria-label="Search">
                         </form>
+                        
+                        <span id="nome"></span>
 
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                             <li class="nav-item dropdown">
 
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="../imagens/ícone_perfil.png" alt="ícone perfil" style="width: 40px;">
                                 </a>
 
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="pagina-do-usuario.html">Perfil</a></li>
                                     <li><a class="dropdown-item" href="#">Configurações</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -81,20 +121,23 @@
                 <form onsubmit="return false;" id="MyForm" enctype="multipart/form-data">
 
                     <div class="mb-2 mx-2">
-                        <textarea rows="3" class="w-100 mt-2 p-1" required="required" maxlength="500" placeholder="Escreva sua legenda aqui..."></textarea>
+                        <textarea id="campoDescricao" rows="3" class="w-100 mt-2 p-1" required="required"
+                            maxlength="500" placeholder="Escreva sua legenda aqui...">POSTAGEM DE TESTE</textarea>
                     </div>
 
                     <div class="mb-2 mx-2">
                         <div class="row">
 
                             <div class="col">
-                                <img src="../imagens/icone-fotografia.png" id="imagem" width="45px" style="cursor:pointer">
+                                <img src="../imagens/icone-fotografia.png" id="imagem" width="45px"
+                                    style="cursor:pointer">
                                 <input id="arquivo" name="file" type="file" style="display:none">
                                 <label for="imagem" class="txtfoto">Foto</label>
                             </div>
 
                             <div class="col">
-                                <button type="button" style="float: left;" class="position-relative btn btn-outline-success shadow-sm">Postar</button>
+                                <button id="btPostar" type="button" style="float: left;"
+                                    class="position-relative btn btn-outline-success shadow-sm">Postar</button>
                             </div>
 
                         </div>
@@ -107,15 +150,41 @@
     </section>
 
 
+    <table id="tabelaPublicacao" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Usuario</th>
+                <th scope="col">descricao</th>
+                <th scope="col">Foto</th>
+            </tr>
+        </thead>
+        <tbody id="corpoTabelaPostagem">
+
+        </tbody>
+    </table>
+
+    <!--Até então, inútil para essa página, mas eu vou deixar por precaução:-->
+    <!--<script type="text/javascript " src="http://code.jquery.com/jquery-1.7.2.min.js "></script> -->
+
+
+    <script src="jquery.session.js"></script>
+
+
+    <script>
+        if ($.session.get("usuarioNome")) {
+            alert($.session.get("usuarioNome"));
+            $("#nome").text($.session.get("usuarioNome"));
+        }
+    </script>
 
     <!--Meu script:-->
     <script type="text/javascript " src="script.js "></script>
 
-    <!--Até então, inútil para essa página, mas eu vou deixar por precaução:-->
-    <script type="text/javascript " src="http://code.jquery.com/jquery-1.7.2.min.js "></script>
 
     <!--Script do menu-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js " integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js "
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf "
+        crossorigin="anonymous "></script>
 
 </body>
 

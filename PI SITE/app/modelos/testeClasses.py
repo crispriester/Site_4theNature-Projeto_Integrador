@@ -1,6 +1,6 @@
 import publicacao
 import perfil 
-#import curtida
+import curtida
 import comentario
 from config import *
 
@@ -17,6 +17,7 @@ if __name__ == "__main__":
     perfil1 = perfil.Perfil(nome = "Cris", senha = "n_sei123", email = "cris@gmail.com")
     perfil2 = perfil.Perfil(nome = "Maria", senha = "travesseirofofinho", email = "maria@gmail.com")
     perfil3 = perfil.Perfil(nome = "Gab", senha = "gabizito2004", email = "gab@gmail.com")
+    perfil4 = perfil.Perfil(nome = "SenhorGabriel", senha = "abc321", email = "gabriel.hiebert@gmail.com")
 
     #Adicionar os dados na sessão de persistência:
     db.session.add(perfil1)
@@ -34,7 +35,7 @@ if __name__ == "__main__":
     db.session.add(publicacao2)
     db.session.add(publicacao3)
 
-    """
+    
     #Teste da classe Curtida: (dados apenas criados na memória)
     curtida1 = curtida.Curtida(data = "25/08/2021", perfil = perfil1, publicacao = publicacao2)
     curtida2 = curtida.Curtida(data = "25/08/2021", perfil = perfil2, publicacao = publicacao3)
@@ -44,7 +45,7 @@ if __name__ == "__main__":
     db.session.add(curtida1)
     db.session.add(curtida2)
     db.session.add(curtida3)
-    """
+    
     #Teste da classe Comentario: (dados apenas criados na memória)
     comentario1 = comentario.Comentario(comentario = "Que árvores lindas!", perfil = perfil2, publicacao = publicacao1)
     comentario2 = comentario.Comentario(comentario = "Quero placas solares também!", perfil = perfil3, publicacao = publicacao2)
@@ -87,7 +88,7 @@ if __name__ == "__main__":
         print(i.json())
         print("")
     
-'''
+
     #Teste da classe Curtida:
     curtidas = db.session.query(curtida.Curtida).all() 
     print("")
@@ -95,4 +96,3 @@ if __name__ == "__main__":
         print(i)
         print(i.json())
         print("")
-'''

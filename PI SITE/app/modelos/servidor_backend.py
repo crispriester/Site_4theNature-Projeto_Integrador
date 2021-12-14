@@ -95,14 +95,14 @@ def incluir_publicacao():
    return resposta #responder!
 #fim do cadastro de publicacao
 
-"""
+
 @app.route('/uploadajax', methods = ['POST'])
 def upldfile():
     r = jsonify({"mensagem":"tentando..."})
     if request.method == 'POST':
         file_val = request.files['file']
         print("vou salvar em: "+file_val.filename)
-        arquivoimg = os.path.join(path, 'img_pet/'+file_val.filename)
+        arquivoimg = os.path.join(path, 'imgPostagem/'+file_val.filename)
         file_val.save(arquivoimg)
         r = jsonify({"mensagem":"ok"})
     r.headers.add("Access-Control-Allow-Origin", "*")
@@ -110,37 +110,22 @@ def upldfile():
 
 @app.route('/get_image/<int:pet_id>')
 def get_image(pet_id):
-    pet = db.session.query(Pet).get(pet_id)
+    postagem = db.session.query(Publicacao).get(pet_id)
     # if request.args.get('type') == '1':
     #    filename = 'ok.gif'
     # else:
     #    filename = 'error.gif'
-    arquivoimg = os.path.join(path, 'img_pet/'+ pet.foto)
-    # arquivoimg = os.path.join('/home/ingguk/mysite/img_pet', pet.foto)
-    # /home/ingguk/mysite/img_pet
+    arquivoimg = os.path.join(path, 'imgPostagem/'+ postagem.foto)
+    # arquivoimg = os.path.join('.../imagens/imgPostagem', postagem.foto)
+    # .../imagens/imgPostagem
     return send_file(arquivoimg, mimetype='image/gif')
 
+"""
 repositorio ingrid:
 https://github.com/hadDOTpy/PI2021/tree/main/dotis
 
 js:
-        var form_data = new FormData($('#MyForm')[0]);
-
-        $.ajax({
-            url: 'http://localhost:5000/uploadajax',
-            type: 'POST',
-            data: form_data,
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: function(data) {
-                console.log('Success!');
-                alert("enviou a foto direitinho!");
-            },
-            error: function(data) {
-                alert("deu ruim na foto");
-            }
-        });
+        
 """
 
 app.run(debug=True) 

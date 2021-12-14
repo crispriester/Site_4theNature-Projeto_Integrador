@@ -22,14 +22,14 @@ function activeClass(active, unactive) {
 }
 
 // código para mapear click do link Inicio
-$(document).on("click", "#link-register", function() {
+$(document).on("click", "#link-register", function () {
     showContent("register");
     activeClass("#link-register", "#link-login")
 
 });
 
 // código para mapear click do link Inicio
-$(document).on("click", "#link-login", function() {
+$(document).on("click", "#link-login", function () {
     showContent("login");
     activeClass("#link-login", "#link-register")
 
@@ -37,7 +37,7 @@ $(document).on("click", "#link-login", function() {
 
 
 //Script do gráfico da terceira dica -> Materiais Biodegradáveis:
-window.onload = function() {
+window.onload = function () {
 
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
@@ -56,16 +56,16 @@ window.onload = function() {
             type: "bar",
             toolTipContent: "<img src=\"../imagens/\"{url}\"\" style=\"width:40px; height:20px;\"> <b>{label}</b><br>Tempo: {y} anos<br>",
             dataPoints: [{
-                    label: "Biodegradáveis",
-                    y: 20,
-                    url: "sacola-biodegradavel-grafico.jpg",
-                    color: "rgb(81, 189, 72)"
-                }, {
-                    label: "Convencionais",
-                    y: 100,
-                    url: "Sacolinha-plástica-grafico.jpg",
-                    color: "rgb(209, 107, 40)"
-                },
+                label: "Biodegradáveis",
+                y: 20,
+                url: "sacola-biodegradavel-grafico.jpg",
+                color: "rgb(81, 189, 72)"
+            }, {
+                label: "Convencionais",
+                y: 100,
+                url: "Sacolinha-plástica-grafico.jpg",
+                color: "rgb(209, 107, 40)"
+            },
 
             ]
         }]
@@ -140,7 +140,7 @@ window.addEventListener('load', () => {
 */
 
 // código para mapear click do botão incluir pessoa 
-$(document).on("click", "#btIncluirUsuario", function() {
+$(document).on("click", "#btIncluirUsuario", function () {
     //pegar dados da tela 
     nome = $("#campoNome").val();
     email = $("#campoEmail").val();
@@ -179,7 +179,7 @@ $(document).on("click", "#btIncluirUsuario", function() {
 });
 
 // código para os ícones de excluir usuario (classe css) 
-$(document).on("click", ".excluir_usuario", function() {
+$(document).on("click", ".excluir_usuario", function () {
     // obter o ID do ícone que foi clicado 
     var componente_clicado = $(this).attr('id');
     // no id do ícone, obter o ID da usuario 
@@ -197,7 +197,7 @@ $(document).on("click", ".excluir_usuario", function() {
     function usuarioExcluido(retorno) {
         if (retorno.resultado == "ok") { // a operação deu certo? 
             // remover da tela a linha cujo usuario foi excluído
-            $("#linha_" + id_usuario).fadeOut(1000, function() {
+            $("#linha_" + id_usuario).fadeOut(1000, function () {
                 // informar resultado de sucesso 
                 alert("Usuário removido com sucesso!");
             });
@@ -214,7 +214,7 @@ $(document).on("click", ".excluir_usuario", function() {
 });
 
 // código para mapear click do botão Login 
-$(document).on("click", "#btLogin", function() {
+$(document).on("click", "#btLogin", function () {
     //pegar dados da tela 
     email = $("#campoEmailLogin").val();
     senha = $("#campoSenhaLogin").val();
@@ -236,7 +236,7 @@ $(document).on("click", "#btLogin", function() {
         $.session.set('usuarioId', resposta.detalhes.id);
         $.session.set('usuarioNome', resposta.detalhes.nome);
         alert(resposta.detalhes.nome);
-        window.location.href = "pagina-do-usuario.html";
+        window.location.href = "forum_inicio.html";
     }
 
     function erroAoConectar() {
@@ -246,6 +246,72 @@ $(document).on("click", "#btLogin", function() {
 
 
 // Script para clicar no ícone da foto e abrir o explorador de arquivos 
-$("#imagem").click(function() {
+$("#imagem").click(function () {
     $("#arquivo").trigger('click');
 });
+
+// código para mapear click do botão postar 
+$(document).on("click", "#btPostar", function () {
+
+    var form_data = new FormData($('#MyForm')[0]);
+
+    // faz o upload da foto
+    $.ajax({
+        url: 'http://localhost:5000/uploadajax',
+        type: 'POST',
+        data: form_data,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (data) {
+            console.log('Success!');
+            //alert("enviou a foto direitinho!");
+
+
+            //pegar dados da tela 
+            descricao = $("#campoDescricao").val();
+            //c:\\fakepath\\nome da foto
+            foto = $("#arquivo").val().substr(12);
+            perfil_id = $.session.get('usuarioId');
+            // preparar dados no formato json 
+            var dados = JSON.stringify({ descricao: descricao, foto: foto, perfil_id: perfil_id });
+            // fazer requisição para o back-end (grava a postagem)
+            $.ajax({
+                url: 'http://localhost:5000/incluir_publicacao',
+                type: 'POST',
+                dataType: 'json', // os dados são recebidos no formato json 
+                contentType: 'application/json', // tipo dos dados enviados 
+                data: dados, // estes são os dados enviados 
+                success: publicacaoIncluida, // chama a função listar para processar o resultado 
+                error: erroAoIncluir
+            });
+
+            function publicacaoIncluida(retorno) {
+                if (retorno.resultado == "ok") { // a operação deu certo? 
+                    // informar resultado de sucesso 
+                    alert("Publicação incluída com sucesso!");
+                    // limpar os campos 
+                    $("#campoDescricao").val("");
+                    //$("#campoFoto").val("");
+                } else {
+                    // informar mensagem de erro 
+                    alert(retorno.resultado + ":" + retorno.detalhes);
+                }
+            }
+
+            function erroAoIncluir(retorno) {
+                // informar mensagem de erro 
+                alert("ERRO: " + retorno.resultado + ":" + retorno.detalhes);
+            }
+
+
+
+        },
+        error: function (data) {
+            alert("deu ruim na foto");
+        }
+    });
+
+
+});
+

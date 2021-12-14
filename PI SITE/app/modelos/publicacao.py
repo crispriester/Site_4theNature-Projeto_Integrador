@@ -19,7 +19,7 @@ class Publicacao(db.Model):
     def json(self):
         return{
             "id": self.id,
-            "descrição": self.descricao,
+            "descricao": self.descricao,
             "foto": self.foto,
             "perfil_id" : self.perfil_id,
             "perfil" : self.perfil.json() 
